@@ -17,16 +17,17 @@ class ShowTableViewController: UITableViewController {
     var players : [Player]?
     
     fileprivate func reloadData() {
+        //首先对数据库中数据升序排列
         let fetch:NSFetchRequest<Player> = Player.fetchRequest()
         fetch.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
-        //得到全部数据
+        //查询到全部数据并刷新页面
         players = try? context.fetch(fetch)
         tableView.reloadData()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //重新加载数据
+        //此tableView每次被加载出来后重新加载数据
         reloadData()
     }
     

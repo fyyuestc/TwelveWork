@@ -52,7 +52,8 @@ class ViewController: UIViewController {
             notice.text = "删除成功"
         }
     }
-        
+    
+    //查询操作完成,更新删除就很简单了
     @IBAction func queryPlayer(_ sender: Any) {
         let fetch:NSFetchRequest<Player> = Player.fetchRequest()
         fetch.predicate = NSPredicate(format: "name=%@",name.text!)
